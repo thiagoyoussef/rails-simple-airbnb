@@ -1,0 +1,14 @@
+<h1>All our Flats</h1>
+
+<% @flats.each do |flat| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= flat.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= flat.address %></h6>
+      <p class="card-text"><%= flat.number_of_guests %> | $<%= flat.price_per_night %></p>
+      <%= link_to 'More info', flat_path(flat) %>
+      <%= link_to 'Edit', edit_flat_path(flat) %>
+      <%= link_to '🗑', flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+<% end %>
